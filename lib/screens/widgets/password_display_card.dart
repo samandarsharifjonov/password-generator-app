@@ -60,9 +60,9 @@ class PasswordDisplayCard extends StatelessWidget {
                         ? "Parol yaratish tugmasini bosing!"
                         : state.password,
                     style: TextStyle(
-                      fontSize: state.password.isEmpty ? 14.sp : 18.sp,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
-                      color: _getStrengthColor(state.strength),//Color(0xFF444444),
+                      color: state.password.isEmpty ? Colors.grey : _getStrengthColor(state.strength),//Color(0xFF444444),
                       letterSpacing: 1.5,
                     ),
                     textAlign: TextAlign.center,

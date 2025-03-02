@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
+                      Text(state.password.isEmpty? "Parol darajasi":
                         state.strength == PasswordStrength.weak
                             ? "Kuchsiz Parol"
                             : state.strength == PasswordStrength.medium
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 20.h,
                         width: 20.w,
                         decoration: BoxDecoration(
-                            color: _getStrengthColor(state.strength),
+                            color: state.password.isEmpty ? Colors.grey.shade300 : _getStrengthColor(state.strength),
                             borderRadius: BorderRadius.circular(100.r),
                           border: Border.all(
                             width: 1.w,
