@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../bloc/password_bloc.dart';
+import '../../bloc/password_state.dart';
+
+class PasswordDisplayCard extends StatelessWidget {
+  const PasswordDisplayCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(20.r),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 10,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: BlocBuilder<PasswordBloc, PasswordState>(
+        builder: (context, state) {
+          return Column(
+            children: [
+              Text(
+                "Sizning parolingiz",
+                style: TextStyle(
+                  fontSize: 16.sp,
+                  color: Colors.grey[600],
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Text(
+                state.password.isEmpty
+                    ? "Parolingiz shu yerda paydo bo'ladi"
+                    : state.password,
+                style: TextStyle(
+                  fontSize: state.password.isEmpty ? 14.sp : 18.sp,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF444444),
+                  letterSpacing: 1.5,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
