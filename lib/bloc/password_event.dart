@@ -19,3 +19,5 @@ class GeneratePassword extends PasswordEvent {
   @override
   List<Object> get props => [length, includeNumbers, includeSpecialChars];
 }
+
+
