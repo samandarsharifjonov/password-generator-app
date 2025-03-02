@@ -5,8 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:passwordgenerate/screens/pages/password_screen.dart';
 import 'bloc/password_bloc.dart';
 
-void main() {
-  SystemChrome.setPreferredOrientations(
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
   );
   runApp(const MyApp());
